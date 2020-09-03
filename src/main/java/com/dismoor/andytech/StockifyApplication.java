@@ -8,6 +8,7 @@ public class StockifyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StockifyApplication.class, args);
+
 	}
 
 }

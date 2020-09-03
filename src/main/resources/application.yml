@@ -18,3 +18,6 @@ spring:
     mongodb:
         uri: mongodb+srv://Andres:1992Andres_@cluster0.zfyx6.mongodb.net/test?retryWrites=true&w=majority
         database: test
+logging:
+   level:
+     org.springframework.data.couchbase.repository.query: DEBUG

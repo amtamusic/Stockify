@@ -1,5 +1,6 @@
 package com.dismoor.andytech.models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Document(collection = "StockifyUser")
+@Document(collection = "StockifyUsers")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -18,6 +19,7 @@ import lombok.ToString;
 @ToString
 public class User {
 
+	@Id
 	String username;
 	String Password;
 }

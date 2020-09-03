@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Logout</title>
 </head>
 <body>
-	Welcome Aliens
-	<a href="/logout">logout</a>
+Logout home<br>
+<a href="/">home</a>
 </body>
 </html>
