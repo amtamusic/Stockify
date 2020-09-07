@@ -22,6 +22,9 @@ ${SPRING_SECURITY_LAST_EXCEPTION.message}
 		<tr>
 			<td><input type="submit" name="submit" value="submit"></td>
 		</tr>
+		<tr>
+			<td><a href="/register">register</a></td>
+		</tr>
 	</table>
 </form>
 </body>

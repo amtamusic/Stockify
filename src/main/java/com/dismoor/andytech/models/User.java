@@ -22,4 +22,5 @@ public class User {
 	@Id
 	String username;
 	String Password;
+	String email;
 }

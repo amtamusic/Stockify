@@ -22,4 +22,8 @@ public class UserService {
 		userRepo.save(user);
 		return "was created successfully.";
 	}
+
+	public User getUser(String username) {
+		return userRepo.findById(username).get();
+	}
 }

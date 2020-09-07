@@ -1,0 +1,8 @@
+<h1>Welcome</h1>
+
+<h2>Portfolios  <i class="far fa-plus-square" (click)="addPortfolio()"></i></h2>
+<div *ngFor="let p of portfolioNames" class="portfolios-div">
+    <div class="portfolio">
+        <h3><a>{{p}}</a></h3>
+    </div>
+</div>
