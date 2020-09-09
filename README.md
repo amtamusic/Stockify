@@ -1,2 +1,1 @@
-# Stockify
- Stockify Backend
+Stockify is a stock paper trading application in which you can simulate buying and selling stocks. You can create and manage multiple portfolios and work with live stock data to sharpen your trading skills. The application also lets you set up alerts and triggers to help you plan your trading strategy.
