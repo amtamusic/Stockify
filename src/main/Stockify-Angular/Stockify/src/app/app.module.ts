@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import {CommonModule} from '@angular/common';
+import { PortfoliodashboardComponent } from './components/portfoliodashboard/portfoliodashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    PortfoliodashboardComponent
   ],
   imports: [
     BrowserModule,

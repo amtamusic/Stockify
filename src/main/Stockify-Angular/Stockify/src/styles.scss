@@ -1,3 +1,29 @@
 h1,h2,h3{
     color: rgb(0, 120, 255);
 }
+.portfolios-div
+{
+    align-content: 0;
+    border: rgb(0, 120, 255);
+    border-style: solid;
+    border-radius: 2%;
+    margin: 5%;
+    width: 500px;
+    box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 10px  5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+    -o-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+}
+
+.portfolios-div:hover
+{
+    border: rgb(0, 0, 255);
+    border-style: solid;
+    border-radius: 2%;
+    background-color:rgb(0, 120, 255);
+}
+
+.portfolios-div:hover .portfolio-property
+{
+    color: white;
+}

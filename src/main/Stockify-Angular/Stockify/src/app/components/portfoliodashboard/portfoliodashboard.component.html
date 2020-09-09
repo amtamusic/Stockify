@@ -1,8 +1,8 @@
-<h1>Welcome</h1>
+<h1>{{portfolioName}}</h1>
 
-<h2>Portfolios  <i class="far fa-plus-square" (click)="addPortfolio()"></i></h2>
+<h2>Investments<i class="far fa-plus-square" (click)="addPortfolio()"></i></h2>
 <div class="row">
-<div *ngFor="let p of portfolioNames" class="portfolios-div container" >
+<div *ngFor="let p of ownedStocks" class="portfolios-div container" >
     <div class="portfolio col-sm" (click)="selectPortfolio(p)">
         <h3 class="portfolio-property">{{p.name}}</h3><br>
         <h3 class="portfolio-property">Total: ${{p.total.toFixed(2)}}</h3>
