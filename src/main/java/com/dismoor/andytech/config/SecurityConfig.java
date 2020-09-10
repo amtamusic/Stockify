@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.dismoor.andytech.models.User;
 import com.dismoor.andytech.services.UserService;
 
 @Configuration
@@ -34,8 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public AuthenticationProvider authProvider() {
-		uS.addUser(new User("Andres", "$2y$12$Hsf4GcHCmCC7jVavhNs8T.s1SLNHCtSHTPsWZYSN41i2lFNqZka5O",
-				"amtamusic@hotmail.com"));
+//		uS.addUser(new User("Andres", "$2y$12$Hsf4GcHCmCC7jVavhNs8T.s1SLNHCtSHTPsWZYSN41i2lFNqZka5O",
+//				"amtamusic@hotmail.com", new ArrayList<>()));
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 		provider.setUserDetailsService(userService);
 		provider.setPasswordEncoder(new BCryptPasswordEncoder());

@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import {CommonModule} from '@angular/common';
 import { PortfoliodashboardComponent } from './components/portfoliodashboard/portfoliodashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { PortfoliodashboardComponent } from './components/portfoliodashboard/por
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CommonModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot()
