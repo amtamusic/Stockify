@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -54,7 +56,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/portfolio/get")
-	public List<Portfolio> getUserDetails(HttpServletRequest request) {
+	public List<Portfolio> getPortfolios(HttpServletRequest request) {
 		System.out.println("Getting portfolios");
 //		ArrayList<Portfolio> ports = new ArrayList<>();
 //		Portfolio p = new Portfolio();
@@ -67,6 +69,34 @@ public class HomeController {
 //		ports.add(p);
 //		return ports;
 		return userService.getUser(request.getUserPrincipal().getName()).getPortfolios();
+	}
+
+	@GetMapping("/portfolio/get/{portfolio}")
+	public Portfolio getPortfolio(HttpServletRequest request, @PathVariable(name = "portfolio") String portfolio) {
+		System.out.println("Getting portfolio:" + portfolio);
+		List<Portfolio> portfolios = userService.getUser(request.getUserPrincipal().getName()).getPortfolios();
+		for (Portfolio p : portfolios) {
+			if (p.getName().equals(portfolio)) {
+				return p;
+			}
+		}
+		return null;
+	}
+
+	@DeleteMapping("/portfolio/delete/{portfolio}")
+	public List<Portfolio> deletePortfolios(HttpServletRequest request,
+			@PathVariable(name = "portfolio") String portfolio) {
+		System.out.println("Deleting portfolio:" + portfolio);
+		List<Portfolio> portfolios = userService.getUser(request.getUserPrincipal().getName()).getPortfolios();
+		for (int i = 0; i < portfolios.size(); i++) {
+			if (portfolios.get(i).getName().equals(portfolio)) {
+				portfolios.remove(i);
+			}
+		}
+		User u = userService.getUser(request.getUserPrincipal().getName());
+		u.setPortfolios(portfolios);
+		userService.addUser(u);
+		return u.getPortfolios();
 	}
 
 	@GetMapping("/register")

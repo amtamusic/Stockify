@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import {CommonModule} from '@angular/common';
 import { PortfoliodashboardComponent } from './components/portfoliodashboard/portfoliodashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     CommonModule,
+    FormsModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot()
   ],

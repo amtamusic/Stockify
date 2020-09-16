@@ -72,4 +72,8 @@ public class StockService {
 			return stockRepo.save(s);
 		}
 	}
+
+	public Stock getStockBySymbol(String s) {
+		return stockRepo.findById(s).get();
+	}
 }

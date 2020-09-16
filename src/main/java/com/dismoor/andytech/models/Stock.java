@@ -1,6 +1,5 @@
 package com.dismoor.andytech.models;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,9 +20,7 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class Stock implements Serializable {
-
-	private static final long serialVersionUID = 6770060364203057751L;
+public class Stock {
 
 	@Id
 	String symbol;

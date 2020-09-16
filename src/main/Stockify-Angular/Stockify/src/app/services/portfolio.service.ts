@@ -7,12 +7,33 @@ import { Observable } from 'rxjs';
 })
 export class PortfolioService {
 
+  private readonly PORTFOLIOS_URL_DELETE = 'http://localhost:8080/portfolio/delete';
+
   private readonly PORTFOLIOS_URL_GET = 'http://localhost:8080/portfolio/get';
 
   private readonly PORTFOLIOS_URL_POST = 'http://localhost:8080/portfolio/add';
 
   constructor(private http: HttpClient) { }
 
+  deletePortfolio(portfolio: string)
+  {
+    return this.http.delete<Array<Portfolio>>
+    (
+      this.PORTFOLIOS_URL_DELETE + '/' + portfolio, {headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+      });
+  }
+
+  getPortfolio(portfolio: string)
+  {
+    return this.http.get<Portfolio>
+    (
+      this.PORTFOLIOS_URL_GET + '/' + portfolio, {headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+      });
+  }
 
   getPortfolios()
   {

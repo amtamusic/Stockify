@@ -1,13 +1,37 @@
-<!-- <h1>{{portfolioName}}</h1>
-
-<h2>Investments<i class="far fa-plus-square" (click)="addPortfolio()"></i></h2>
+<div class="flex-row">
+    <h1 class="portfolio col-12">Porfolio: {{portfolio.name}}</h1><br>
+    <h1 class="portfolio col-12">Total: {{portfolio.total}}</h1><br>
+    <h1 class="portfolio col-12">Available: {{portfolio.available}}</h1><br>
+    <h1 class="portfolio col-12">Invested: {{portfolio.invested}}</h1><br> 
+    <h1 class="col-12">Stocks Owned</h1><br> 
+</div>
 <div class="row">
-<div *ngFor="let p of ownedStocks" class="portfolios-div container" >
-    <div class="portfolio col-sm" (click)="selectPortfolio(p)">
-        <h3 class="portfolio-property">{{p.name}}</h3><br>
-        <h3 class="portfolio-property">Total: ${{p.total.toFixed(2)}}</h3>
-        <h3 class="portfolio-property">Available: ${{p.available.toFixed(2)}}</h3>
-        <h3 class="portfolio-property">Invested: ${{p.invested.toFixed(2)}}</h3>
+    <div class="portfolios-div container" *ngFor="let stockOwned of stocksOwned">
+        <div class="portfolio col-sm">
+            <h3 class="portfolio-property">{{stockOwned.symbol}}</h3><br>
+            <h3 class="portfolio-property">Price: ${{stockOwned.price.toFixed(2)}}</h3>
+            <h3 class="portfolio-property">Quantity: -</h3>
+            <h3 class="portfolio-property">Invested: -</h3>
+        </div>
     </div>
 </div>
-</div> -->
+<div class="separator"></div>
+<div class="flex-row">
+        <div class="col-12 d-flex justify-content-center">
+          <input class="search" type="text" placeholder="Type in a Stock Symbol" aria-label="Search" [(ngModel)]="searchText">
+          <input class="btn-search" type="button" value="Search" title="Search" aria-label="Search" (click)="search()" >
+        </div>
+    <h1 class="col-12">Search Results</h1><br> 
+</div>
+<div class="separator"></div>
+
+<div class="row">
+    <div class="portfolios-div container" *ngFor="let stockS of stocksSearchResult">
+        <div class="portfolio col-sm">
+            <h3 class="portfolio-property">{{stockS.symbol}}</h3><br>
+            <h3 class="portfolio-property">Price: ${{stockS.price.toFixed(2)}}</h3>
+            <h3 class="portfolio-property">Quantity: -</h3>
+            <h3 class="portfolio-property">Invested: -</h3>
+        </div>
+    </div>
+</div>

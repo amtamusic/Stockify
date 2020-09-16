@@ -1,5 +1,7 @@
 package com.dismoor.andytech.config;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.dismoor.andytech.services.UserService;
+import com.dismoor.andytech.services.StockService;
 
 @Configuration
 @EnableWebSecurity
@@ -28,13 +30,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userService;
 
+//	@Autowired
+//	private UserService uS;
+
 	@Autowired
-	private UserService uS;
+	StockService stockService;
 
 	@Bean
-	public AuthenticationProvider authProvider() {
+	public AuthenticationProvider authProvider() throws IOException {
 //		uS.addUser(new User("Andres", "$2y$12$Hsf4GcHCmCC7jVavhNs8T.s1SLNHCtSHTPsWZYSN41i2lFNqZka5O",
 //				"amtamusic@hotmail.com", new ArrayList<>()));
+//		BufferedReader br = new BufferedReader(new FileReader("stocks.csv"));
+//		String line = "";
+//		while ((line = br.readLine()) != null) {
+//			Stock temp = new Stock();
+//			String[] data = line.split(",");
+//			temp.setSymbol(data[0]);
+//			temp.setCompanyName(data[1]);
+//			double price = new java.util.Random().nextDouble() * 500 + 500;
+//			temp.setPrice(price);
+//			System.out.println(temp.toString());
+//			stockService.saveStock(temp);
+//		}
+//		br.close();
+//		System.out.println("Done inserting");
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 		provider.setUserDetailsService(userService);
 		provider.setPasswordEncoder(new BCryptPasswordEncoder());

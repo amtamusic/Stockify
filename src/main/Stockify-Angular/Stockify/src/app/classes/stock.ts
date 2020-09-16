@@ -16,6 +16,6 @@ export class Stock {
     sector: string;
     avgVol: number;
     website: string;
-    history: Map<string, number>;
+    history: Array<Stock>;
     timestamp: string;
 }
