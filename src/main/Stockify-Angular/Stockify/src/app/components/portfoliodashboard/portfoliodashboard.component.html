@@ -6,12 +6,16 @@
     <h1 class="col-12">Stocks Owned</h1><br> 
 </div>
 <div class="row">
-    <div class="portfolios-div container" *ngFor="let stockOwned of stocksOwned">
+    <div class="portfolios-div container" *ngFor="let stockOwned of stocksOwned; index as i;">
         <div class="portfolio col-sm">
             <h3 class="portfolio-property">{{stockOwned.symbol}}</h3><br>
             <h3 class="portfolio-property">Price: ${{stockOwned.price.toFixed(2)}}</h3>
-            <h3 class="portfolio-property">Quantity: -</h3>
-            <h3 class="portfolio-property">Invested: -</h3>
+            <h3 class="portfolio-property">Quantity: ${{stocksOwnedQtY[i]}}</h3>
+            <h3 class="portfolio-property">Invested: - </h3>
+            <div class="sell-container">
+                <input type="number" class="sell sell-txt" min="1" max="5" placeholder="QTY" [(ngModel)]="stocksOwnedQtySell[i]">
+                <input type="submit" class="sell sell-btn" value="Sell" (click)="sellStock(i)">
+            </div>
         </div>
     </div>
 </div>
@@ -26,12 +30,16 @@
 <div class="separator"></div>
 
 <div class="row">
-    <div class="portfolios-div container" *ngFor="let stockS of stocksSearchResult">
+    <div class="portfolios-div container" *ngFor="let stockS of stocksSearchResult; index as i;">
         <div class="portfolio col-sm">
             <h3 class="portfolio-property">{{stockS.symbol}}</h3><br>
             <h3 class="portfolio-property">Price: ${{stockS.price.toFixed(2)}}</h3>
             <h3 class="portfolio-property">Quantity: -</h3>
             <h3 class="portfolio-property">Invested: -</h3>
+            <div class="buy-container">
+                <input type="number" class="buy buy-txt" min="1" max="5" placeholder="QTY" [(ngModel)]="stocksSearchResultQtyBuy[i]">
+                <input type="submit" class="buy buy-btn" value="Buy" (click)="buyStock(i)"> 
+            </div>
         </div>
     </div>
 </div>

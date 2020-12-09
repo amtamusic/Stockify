@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dismoor.andytech.models.Portfolio;
 import com.dismoor.andytech.models.Stock;
 import com.dismoor.andytech.models.StockJSON;
+import com.dismoor.andytech.models.User;
 import com.dismoor.andytech.services.StockService;
 import com.dismoor.andytech.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -88,9 +89,11 @@ public class StockController {
 
 		List<Portfolio> portfolios = userService.getUser(request.getUserPrincipal().getName()).getPortfolios();
 		Portfolio currentPortfolio = null;
+		int portfolioIndex = -1;
 		for (int i = 0; i < portfolios.size(); i++) {
 			if (portfolios.get(i).getName().equals(portfolio)) {
 				currentPortfolio = portfolios.get(i);
+				portfolioIndex = i;
 			}
 		}
 		Stock s = stockService.getStockBySymbol(stock);
@@ -106,6 +109,9 @@ public class StockController {
 			tempStocks.add(tempPrice);
 			currentPortfolio.getStocksOwned().put(stock, tempStocks);
 		}
+		User u = userService.getUser(request.getUserPrincipal().getName());
+		u.getPortfolios().set(portfolioIndex, currentPortfolio);
+		this.userService.addUser(u);
 		return currentPortfolio;
 	}
 
@@ -117,9 +123,11 @@ public class StockController {
 
 		List<Portfolio> portfolios = userService.getUser(request.getUserPrincipal().getName()).getPortfolios();
 		Portfolio currentPortfolio = null;
+		int portfolioIndex = -1;
 		for (int i = 0; i < portfolios.size(); i++) {
 			if (portfolios.get(i).getName().equals(portfolio)) {
 				currentPortfolio = portfolios.get(i);
+				portfolioIndex = i;
 			}
 		}
 		Stock s = stockService.getStockBySymbol(stock);
@@ -141,6 +149,9 @@ public class StockController {
 			currentPortfolio.getStocksSold().put(stock, tempStocksSold);
 			currentPortfolio.getStocksOwned().put(stock, tempStocksOwned);
 		}
+		User u = userService.getUser(request.getUserPrincipal().getName());
+		u.getPortfolios().set(portfolioIndex, currentPortfolio);
+		this.userService.addUser(u);
 		return currentPortfolio;
 	}
 
